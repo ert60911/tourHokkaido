@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpolygon fill=%27%23D8232A%27 points=%2732,4 39.5,24 60,24.5 44,37.5 49.5,58 32,46 14.5,58 20,37.5 4,24.5 24.5,24%27/%3E%3C/svg%3E">
+<title>冬戀北海道　家族旅行特輯</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..900&family=Noto+Serif+TC:wght@400;700;900&display=swap">
+<style>
+/* ===== 1. Tokens ===== */
+:root {
+  --paper: #EEF1F2;
+  --ink: #1E2A4A;
+  --red: #D8232A;
+  --red-text: #C01E25;   /* red for small text: AA on --paper */
+  --mustard: #F0B323;
+  --pink: #F2A7B8;
+  --mist: #8FB3D9;
+  --badge-ink: #1E2A4A;  /* fixed: badges stay mustard in both schemes */
+  --rule: rgba(30, 42, 74, 0.25);
+  --font-cjk: "Noto Serif TC", "Noto Serif CJK TC", "PMingLiU", "Songti TC", serif;
+  --font-num: "Bodoni Moda", "Noto Serif TC", "Noto Serif CJK TC", "PMingLiU", "Songti TC", serif;
+  --gutter: 16px;
+  --col: 720px;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #16203A;
+    --ink: #EEF1F2;
+    --red-text: #FF7A80;  /* lighter red keeps 4.5:1 on indigo */
+    --rule: rgba(238, 241, 242, 0.3);
+  }
+}
+
+/* ===== 2. Base ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-cjk);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+h1, h2, h3, p, ul, ol, dl, dd { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+button { font: inherit; color: inherit; }
+.num { font-family: var(--font-num); font-weight: 600; }
+:focus-visible { outline: 3px solid var(--red-text); outline-offset: 3px; border-radius: 2px; }
+.wrap { max-width: var(--col); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* ===== 3. Cover ===== */
+.cover {
+  --cover-paper: #EEF1F2;  /* the cover is printed stock: same in dark mode */
+  --cover-ink: #1E2A4A;
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px var(--gutter) 16px;
+  background: var(--cover-paper);
+  color: var(--cover-ink);
+  overflow: hidden;
+}
+.cover-inner { position: relative; z-index: 2; width: 100%; max-width: 960px; margin: 0 auto; flex: 1 1 auto; display: flex; flex-direction: column; }
+.masthead-row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 4px 16px; }
+.masthead {
+  font-weight: 900;
+  font-size: clamp(56px, 17.5vw, 150px);
+  line-height: 1.05;
+  color: var(--red);
+}
+.issue { display: flex; flex-direction: column; font-size: 16px; line-height: 1.5; padding-bottom: 10px; }
+.issue-no { font-weight: 700; }
+.cover-main {
+  flex: 1 1 auto; display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto 1fr;
+  gap: 12px; margin-top: 16px;
+}
+.cover-main .coverlines { grid-column: 1; grid-row: 1; }
+.cover-main .cover-headline { grid-column: 2; grid-row: 1; }
+.cover-main .art { grid-column: 1 / -1; grid-row: 2; }
+.coverlines { display: flex; flex-direction: column; gap: 6px; text-align: left; }
+.coverlines li { font-weight: 900; line-height: 1.25; }
+.coverlines li:nth-child(1) { font-size: 28px; }
+.coverlines li:nth-child(2) { font-size: 21px; }
+.coverlines li:nth-child(3) { font-size: 25px; color: var(--red-text-fixed, #C01E25); }
+.coverlines li:nth-child(4) { font-size: 19px; }
+.coverlines li:nth-child(5) { font-size: 23px; }
+.coverlines li:nth-child(6) { font-size: 20px; }
+.cover-headline {
+  writing-mode: vertical-rl;
+  font-weight: 900;
+  font-size: clamp(56px, 17vw, 140px);
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  margin-right: 4px;
+}
+.art { position: relative; min-height: 200px; margin: 8px calc(var(--gutter) * -1) 0; }
+.layer { position: absolute; inset: 0; }
+.layer svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.layer-pink { mix-blend-mode: multiply; transform: translate(3px, 2px); }
+.dots {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 55%;
+  -webkit-mask-image: linear-gradient(to top, #000 10%, transparent);
+  mask-image: linear-gradient(to top, #000 10%, transparent);
+}
+.layer-mist .dots {
+  background-image: radial-gradient(circle at center, var(--mist) 0 3px, transparent 3.6px);
+  background-size: 12px 12px;
+}
+.layer-pink .dots {
+  background-image: radial-gradient(circle at center, var(--pink) 0 2.4px, transparent 3px);
+  background-size: 12px 12px;
+  background-position: 6px 6px;
+}
+.cover-foot { position: relative; z-index: 2; font-size: 16px; line-height: 1.6; padding-top: 10px; max-width: 960px; width: 100%; margin: 0 auto; font-weight: 700; }
+/* Desktop: one-viewport cover; grid = coverlines | illustration | vertical title */
+@media (min-width: 1024px) {
+  .cover { min-height: 0; height: min(100vh, 900px); height: min(100svh, 900px); }
+  .cover-inner, .cover-foot { max-width: 1100px; }
+  .cover-main { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-rows: minmax(0, 1fr); gap: 24px; }
+  .cover-main .coverlines { grid-column: 1; grid-row: 1; }
+  .cover-main .art { grid-column: 2; grid-row: 1; align-self: end; width: 100%; aspect-ratio: 400 / 220; max-height: 100%; min-height: 0; margin: 0; }
+  .cover-main .cover-headline { grid-column: 3; grid-row: 1; font-size: 120px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .layer-pink { animation: reg-pink 600ms cubic-bezier(.2, .7, .2, 1) 1 both; }
+  .layer-mist { animation: reg-mist 600ms cubic-bezier(.2, .7, .2, 1) 1 both; }
+}
+@keyframes reg-pink { from { transform: translate(-28px, 14px); opacity: 0; } to { transform: translate(3px, 2px); opacity: 1; } }
+@keyframes reg-mist { from { transform: translate(24px, -10px); opacity: 0; } to { transform: translate(0, 0); opacity: 1; } }
+
+/* ===== 4. Flights ===== */
+.flights { padding-top: 32px; padding-bottom: 8px; }
+.section-title { font-weight: 900; font-size: 26px; line-height: 1.4; margin-bottom: 12px; }
+.tickets { display: grid; gap: 20px; }
+.ticket { color: #1E2A4A; filter: drop-shadow(0 0 0 transparent); }
+.ticket-main, .ticket-stub { background: var(--mist); padding: 14px 18px; }
+.ticket-main {
+  border-radius: 10px 10px 0 0;
+  -webkit-mask: radial-gradient(circle 10px at 0 100%, #0000 97%, #000) left / 51% 100% no-repeat,
+                radial-gradient(circle 10px at 100% 100%, #0000 97%, #000) right / 51% 100% no-repeat;
+  mask: radial-gradient(circle 10px at 0 100%, #0000 97%, #000) left / 51% 100% no-repeat,
+        radial-gradient(circle 10px at 100% 100%, #0000 97%, #000) right / 51% 100% no-repeat;
+}
+.ticket-stub {
+  border-radius: 0 0 10px 10px;
+  position: relative;
+  -webkit-mask: radial-gradient(circle 10px at 0 0, #0000 97%, #000) left / 51% 100% no-repeat,
+                radial-gradient(circle 10px at 100% 0, #0000 97%, #000) right / 51% 100% no-repeat;
+  mask: radial-gradient(circle 10px at 0 0, #0000 97%, #000) left / 51% 100% no-repeat,
+        radial-gradient(circle 10px at 100% 0, #0000 97%, #000) right / 51% 100% no-repeat;
+  display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap;
+}
+.ticket-stub::before { content: ""; position: absolute; top: 0; left: 14px; right: 14px; border-top: 2px dashed rgba(30, 42, 74, 0.45); }
+.ticket-head { display: flex; justify-content: space-between; align-items: baseline; font-weight: 700; font-size: 17px; }
+.ticket-legs { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; margin-top: 4px; }
+.leg { display: flex; flex-direction: column; line-height: 1.3; }
+.leg-to { text-align: right; }
+.leg-time { font-family: var(--font-num); font-weight: 700; font-size: 34px; }
+.leg-code { font-family: var(--font-num); font-weight: 600; font-size: 17px; }
+.leg-city { font-size: 16px; }
+.leg-line { width: 36px; border-top: 2px solid #1E2A4A; position: relative; }
+.leg-line::after { content: ""; position: absolute; right: -1px; top: -6px; border: 5px solid transparent; border-left: 8px solid #1E2A4A; border-right: 0; }
+.flight-no { font-family: var(--font-num); font-weight: 800; font-size: 22px; }
+.airline { font-size: 17px; }
+
+/* ===== 5. Tools and day navigation ===== */
+.tools { display: flex; justify-content: flex-end; padding-top: 12px; padding-bottom: 12px; }
+.btn {
+  min-height: 44px; min-width: 44px; padding: 8px 20px;
+  background: transparent; border: 2px solid var(--ink); border-radius: 22px;
+  font-weight: 700; font-size: 17px; cursor: pointer;
+}
+.btn:hover { background: var(--ink); color: var(--paper); }
+.daynav {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+}
+.daynav-list { display: flex; max-width: var(--col); margin: 0 auto; padding: 0 4px; }
+.daynav-btn {
+  position: relative; flex: 1 1 0; min-width: 0; min-height: 52px;
+  padding: 4px 2px 6px; background: transparent; border: 0; border-bottom: 4px solid transparent;
+  cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  line-height: 1.3; font-size: 15px;
+}
+.daynav-btn .nav-day { font-weight: 900; }
+.daynav-btn .nav-date { font-family: var(--font-num); font-weight: 600; font-size: 15px; white-space: nowrap; }
+.daynav-btn[aria-current="true"] { border-bottom-color: var(--red); }
+.daynav-btn[aria-current="true"] .nav-day { color: var(--red-text); }
+.today-mark {
+  position: absolute; top: 0; right: 0; padding: 0 5px; font-size: 12px; line-height: 1.5; font-weight: 700;
+  background: var(--mustard); color: var(--badge-ink); border-radius: 0 0 0 6px;
+}
+
+/* ===== 6. Day sections ===== */
+.day { padding-top: 40px; padding-bottom: 24px; scroll-margin-top: 56px; }
+.day-head { display: grid; grid-template-columns: auto 1fr; column-gap: 16px; align-items: end; margin-bottom: 20px; }
+.day-numeral { grid-row: 1 / span 2; font-family: var(--font-num); font-weight: 800; font-size: 96px; line-height: 0.9; color: var(--red-text); }
+.day-label { font-weight: 900; font-size: 18px; line-height: 1.4; }
+.day-date { font-family: var(--font-num); font-weight: 700; font-size: 24px; line-height: 1.3; }
+.day-route { grid-column: 1 / -1; margin-top: 12px; font-weight: 700; max-width: 36em; }
+
+/* Timeline */
+.timeline { position: relative; padding-left: 30px; }
+.timeline::before { content: ""; position: absolute; left: 6px; top: 14px; bottom: 14px; width: 2px; background: var(--red); }
+.stop { position: relative; break-inside: avoid; }
+.stop::before {
+  content: ""; position: absolute; left: -30px; top: 27px; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--paper); border: 3px solid var(--red);
+}
+.stop summary {
+  display: flex; align-items: center; gap: 12px;
+  min-height: 56px; padding: 6px 28px 6px 0; cursor: pointer; list-style: none; position: relative;
+  font-weight: 900; font-size: 19px; line-height: 1.5;
+}
+.stop summary::-webkit-details-marker { display: none; }
+.stop summary::after {
+  content: ""; position: absolute; right: 6px; top: 50%; width: 9px; height: 9px;
+  border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink);
+  transform: translateY(-70%) rotate(45deg);
+}
+.stop[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
+.stop-title { flex: 1 1 0; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+/* Postage stamp: outer span tilts and casts the shadow, inner face is masked into perforations */
+.stamp { flex: none; width: 56px; height: 56px; transform: rotate(-1.5deg); filter: drop-shadow(0 1px 1px rgba(30, 42, 74, 0.35)); }
+.timeline > li:nth-child(even) .stamp { transform: rotate(1.5deg); }
+.stamp-face {
+  display: block; width: 100%; height: 100%; padding: 5px; background: #FBF8EF;
+  -webkit-mask: linear-gradient(#000 0 0) 4px 4px / calc(100% - 8px) calc(100% - 8px) no-repeat,
+                radial-gradient(circle at 50% 50%, #0000 2.6px, #000 3.1px) -4px -4px / 8px 8px;
+  mask: linear-gradient(#000 0 0) 4px 4px / calc(100% - 8px) calc(100% - 8px) no-repeat,
+        radial-gradient(circle at 50% 50%, #0000 2.6px, #000 3.1px) -4px -4px / 8px 8px;
+}
+.stamp-art { display: block; width: 100%; height: 100%; }
+.badge {
+  display: inline-block; padding: 0 8px; border-radius: 4px; font-size: 13px; line-height: 1.7; font-weight: 700;
+  background: var(--mustard); color: var(--badge-ink);
+}
+.badge-quiet { background: transparent; color: var(--ink); border: 1px solid var(--ink); line-height: 1.55; }
+.stop-body { padding: 0 0 14px; max-width: 36em; }
+.stop-desc { font-size: 18px; }
+.stop-notes { margin-top: 8px; }
+.stop-notes li { font-size: 14px; line-height: 1.7; opacity: 0.88; padding-left: 1em; text-indent: -1em; }
+.stop-notes li::before { content: "※"; margin-right: 2px; }
+.photo-btn { margin-top: 10px; padding: 6px 16px; font-size: 16px; }
+
+/* Photo dialog */
+.photo-dialog {
+  width: min(92vw, 560px); max-height: 90vh; margin: auto; padding: 0; overflow: auto;
+  background: var(--paper); color: var(--ink); border: 3px solid var(--ink);
+}
+.photo-dialog::backdrop { background: rgba(22, 32, 58, 0.72); }
+.photo-card { padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.photo-img { display: block; width: 100%; max-height: 55vh; object-fit: contain; background: #fff; border: 8px solid #fff; box-shadow: 0 1px 4px rgba(30, 42, 74, 0.45); }
+.photo-img[hidden], .photo-status:empty { display: none; }
+.photo-status { font-weight: 700; padding: 24px 0; text-align: center; }
+.photo-caption { font-weight: 900; font-size: 18px; line-height: 1.5; }
+.photo-credit { font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
+.photo-credit a { color: var(--red-text); }
+.photo-close { align-self: flex-end; }
+
+/* Meals and hotel */
+.day-foot { margin-top: 20px; max-width: 36em; }
+.meals { border-top: 1px solid var(--rule); }
+.meals li { display: grid; grid-template-columns: 2em 1fr; gap: 8px; padding: 8px 0; font-size: 17px; line-height: 1.6; }
+.meal-label { font-weight: 900; color: var(--red-text); }
+.hotel { border-top: 1px solid var(--rule); padding-top: 12px; }
+.hotel-label { font-weight: 900; font-size: 15px; color: var(--red-text); }
+.hotel-primary { font-weight: 900; font-size: 19px; line-height: 1.5; }
+.hotel-note { font-size: 15px; }
+.hotel-alt-label { margin-top: 6px; font-size: 15px; font-weight: 700; }
+.hotel-alts li { font-size: 16px; line-height: 1.6; }
+
+/* ===== 7. Reminders and footer ===== */
+.reminders { padding-top: 48px; padding-bottom: 24px; }
+.reminders ul { max-width: 36em; }
+.reminders li { font-size: 16px; line-height: 1.8; padding: 8px 0; border-top: 1px solid var(--rule); }
+.page-foot { padding-top: 16px; padding-bottom: 48px; font-size: 14px; opacity: 0.85; }
+
+/* ===== 8. Narrow screens ===== */
+@media (max-width: 400px) {
+  .leg-time { font-size: 30px; }
+  .day-numeral { font-size: 80px; }
+  .daynav-btn { font-size: 14px; }
+  .daynav-btn .nav-date { font-size: 14px; }
+}
+
+/* ===== 9. Print ===== */
+@page { size: A4; margin: 12mm; }
+@media print {
+  :root { --paper: #fff; --ink: #1E2A4A; --red-text: #C01E25; --rule: rgba(30, 42, 74, 0.3); color-scheme: light; }
+  html, body { background: #fff; color: #1E2A4A; font-size: 12pt; }
+  .daynav, .tools, .btn, .photo-dialog, .stop summary::after { display: none !important; }
+  .cover, .art, .art svg, .ticket-main, .ticket-stub, .layer, .badge, .today-mark, .stamp-face {
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .cover { height: 265mm; min-height: 0; break-after: page; }
+  .layer-pink { animation: none; }
+  .flights { break-after: avoid; }
+  .day + .day { break-before: page; }
+  .reminders { break-before: page; }
+  .stop, .meals, .hotel, .ticket { break-inside: avoid; }
+  .day { padding-top: 12px; }
+}
+</style>
+</head>
+<body>
+<!-- ===== Stop illustrations (decorative stamp vignettes: ink + one accent, offset print look) ===== -->
+<svg hidden width="0" height="0" focusable="false" aria-hidden="true">
+<defs><style>.si{fill:none;stroke:#1E2A4A;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}.sf{fill:#1E2A4A;stroke:none}</style></defs>
+<symbol id="ill-d1-flight-out" viewBox="0 0 64 64"><circle cx="43" cy="25" r="14" fill="#F0B323"/><g class="si" transform="rotate(-25 32 34)"><path d="M6 34c0-4 4-5 8-5h30c8 0 14 2 14 5s-6 5-14 5H14c-4 0-8-1-8-5z"/><path d="M26 29l8-17h6l-5 17M26 39l8 17h6l-5-17M10 29l-3-9h6l6 9"/></g><path class="si" d="M8 56h14M16 60h22"/></symbol>
+<symbol id="ill-d1-hakodate-night" viewBox="0 0 64 64"><circle cx="13" cy="13" r="7" fill="#F0B323"/><g fill="#F0B323"><circle cx="12" cy="59" r="1.8"/><circle cx="20" cy="60" r="1.8"/><circle cx="29" cy="59" r="1.8"/><circle cx="38" cy="60" r="1.8"/><circle cx="47" cy="59" r="1.8"/><circle cx="55" cy="60" r="1.8"/></g><path class="si" d="M2 54L20 36l10 8 12-14 20 24zM6 26L58 14M32 20v5"/><rect class="si" x="26" y="25" width="12" height="9" rx="1.5"/></symbol>
+<symbol id="ill-d2-onuma" viewBox="0 0 64 64"><path d="M2 46h60v16H2z" fill="#8FB3D9"/><path class="si" d="M4 44L20 30l6-6 4 4 6-8 6 8 5-4 13 20zM10 51h14M30 51h20M18 57h22"/></symbol>
+<symbol id="ill-d2-snow-play" viewBox="0 0 64 64"><path d="M14 40q0-11 10-11h12l8 8h7v8H14z" fill="#D8232A"/><g class="si"><rect x="10" y="46" width="34" height="8" rx="4"/><path d="M44 50h6q8 0 10-8M36 29l4-9h5M46 29l-2-8"/></g><g class="sf"><circle cx="8" cy="40" r="1.5"/><circle cx="14" cy="58" r="1.5"/><circle cx="52" cy="58" r="1.5"/><circle cx="58" cy="30" r="1.5"/></g></symbol>
+<symbol id="ill-d2-ice-fishing" viewBox="0 0 64 64"><ellipse cx="34" cy="48" rx="21" ry="9" fill="#8FB3D9"/><g class="si"><ellipse cx="32" cy="46" rx="21" ry="9"/><path d="M56 6L26 22M26 22v26M4 58l9-4M52 58l8 3"/><path d="M36 50q5-5 10 0-5 5-10 0zM46 50l4-3v6z"/></g></symbol>
+<symbol id="ill-d2-funka-bay" viewBox="0 0 64 64"><circle cx="46" cy="20" r="10" fill="#F2A7B8"/><path class="si" d="M2 42Q14 30 26 38q8-14 18-2 8-4 18 4M6 50q4-4 8 0t8 0 8 0 8 0 8 0 8 0M12 58q4-4 8 0t8 0 8 0 8 0"/></symbol>
+<symbol id="ill-d2-otaru-canal" viewBox="0 0 64 64"><path d="M6 32h20v22H6zM40 26h20v28H40z" fill="#D8232A"/><path class="si" d="M4 30h22v24H4zM38 24h22v30H38zM4 30l11-9 11 9M38 24l11-9 11 9M10 38h6M10 46h6M44 34h6M44 44h6M32 56V28M28 28h8l-1-7h-6zM4 60h56"/></symbol>
+<symbol id="ill-d2-kitaichi-music-box" viewBox="0 0 64 64"><circle cx="34" cy="33" r="8" fill="#F0B323"/><path class="si" d="M24 20h16v36H24zM21 20L32 6l11 14zM32 33v-5M32 33h4M18 56h28M20 44h4M40 44h4M52 38q5-4 0-8t0-8"/><circle class="si" cx="32" cy="31" r="8"/></symbol>
+<symbol id="ill-d3-shiroi-koibito" viewBox="0 0 64 64"><path d="M23 24L34 6l11 18z" fill="#F2A7B8"/><g fill="#F2A7B8"><circle cx="10" cy="50" r="4"/><circle cx="56" cy="50" r="4"/></g><path class="si" d="M26 22h12v34H26zM24 22L32 4l8 18zM32 4V1M32 32m-4 0a4 4 0 1 0 8 0 4 4 0 1 0-8 0M32 32v-3M32 32h2M2 58h60M4 58q4-12 12 0M48 58q4-12 12 0M30 56v-8h4v8"/></symbol>
+<symbol id="ill-d3-hokkaido-jingu" viewBox="0 0 64 64"><path d="M2 18q22 6 44 0v7H2z" fill="#D8232A"/><g class="si"><path d="M1 17q22 6 44 0v7H1zM10 24v34M36 24v34M7 34h32M54 8L46 28h16zM54 22L45 42h18zM54 36L44 56h20zM54 56v5"/></g><g class="sf"><circle cx="50" cy="26" r="1.3"/><circle cx="58" cy="40" r="1.3"/></g></symbol>
+<symbol id="ill-d3-sapporo-beer" viewBox="0 0 64 64"><polygon transform="translate(-6 0)" fill="#D8232A" points="26,9 27.7,13.7 32.7,13.8 28.8,16.9 30.1,21.7 26,18.9 21.9,21.7 23.2,16.9 19.3,13.8 24.3,13.7"/><path class="si" d="M4 57V34l16-6 16 6v23zM4 42h32M4 50h32M12 57V50M42 30h16q4 14 0 28H42q-4-14 0-28zM42 37h16M42 51h16"/></symbol>
+<symbol id="ill-d3-duty-free" viewBox="0 0 64 64"><path d="M16 26h36l3 34H13z" fill="#F2A7B8"/><path class="si" d="M14 24h36l3 34H11zM24 24v-6a8 8 0 0 1 16 0v6M54 8v8M50 12h8M8 14v5M5.5 16.5h5"/></symbol>
+<symbol id="ill-d3-white-illumination" viewBox="0 0 64 64"><g fill="#F0B323"><circle cx="20" cy="14" r="2.5"/><circle cx="13" cy="30" r="2.5"/><circle cx="27" cy="36" r="2.5"/><circle cx="46" cy="32" r="2.2"/><circle cx="41" cy="46" r="2.2"/><circle cx="51" cy="48" r="2.2"/></g><path class="si" d="M20 6L8 30h24zM20 22L6 46h28zM20 46v12M46 24l-8 16h16zM46 34L36 52h20zM46 52v6M2 60h60M56 8v6M53 11h6"/></symbol>
+<symbol id="ill-d3-tanukikoji" viewBox="0 0 64 64"><g fill="#D8232A"><ellipse cx="14" cy="24" rx="5" ry="7"/><ellipse cx="32" cy="22" rx="5" ry="7"/><ellipse cx="50" cy="24" rx="5" ry="7"/></g><path class="si" d="M3 8h58M14 8v9M32 8v7M50 8v9M12 17h4M30 15h4M48 17h4M3 62L24 36M61 62L40 36M3 38h12v24M61 38H49v24M32 36v26"/></symbol>
+<symbol id="ill-d4-nixe" viewBox="0 0 64 64"><path d="M6 58V32h6v-4h4v4h4v-4h4v4h4v-4h4v4h2v26z" fill="#8FB3D9"/><g class="si"><path d="M4 56V30h6v-4h4v4h4v-4h4v4h4v-4h4v4h2v26zM12 56v-8a3 3 0 0 1 6 0v8M42 18c-7 0-9 8-9 18s2 20 9 20 9-12 9-20-2-18-9-18zM51 23l5 2M34 34l-4 10M50 34l4 10M38 58h-3M46 58h3M2 60h60"/></g><circle class="sf" cx="45" cy="25" r="1.4"/></symbol>
+<symbol id="ill-d4-jigokudani" viewBox="0 0 64 64"><path d="M4 60V38l14-8 12 22 10-20 22 8v20z" fill="#D8232A"/><path class="si" d="M2 58V36l14-8 12 22 10-20 22 8v20zM22 26q-5-4 0-8t0-8M44 24q-5-4 0-8t0-8M52 8q-4-3 0-6"/><g class="sf"><circle cx="12" cy="48" r="1.5"/><circle cx="50" cy="50" r="1.5"/></g></symbol>
+<symbol id="ill-d4-toya-viewpoint" viewBox="0 0 64 64"><path d="M4 36q12-8 24-1 12-9 34 1v18H4z" fill="#8FB3D9"/><path class="si" d="M2 34Q14 24 26 32q14-10 36 2M18 46q7-12 14 0zM38 48q4-8 9 0zM8 42h8M44 40h12M2 55h60M12 55v6M32 55v6M52 55v6"/></symbol>
+<symbol id="ill-d4-toya-onsen" viewBox="0 0 64 64"><path d="M10 38h48q0 14-14 14H24q-14 0-14-14z" fill="#F2A7B8"/><path class="si" d="M8 36h48q0 14-14 14H22q-14 0-14-14zM20 4q-5 5 0 10t0 10M32 2q-5 5 0 10t0 10M44 4q-5 5 0 10t0 10M12 58h40"/></symbol>
+<symbol id="ill-d4-toya-illumination" viewBox="0 0 64 64"><path d="M10 58V32a22 22 0 0 1 44 0v26M26 58V36a6 6 0 0 1 12 0v22" fill="none" stroke="#F0B323" stroke-width="5" stroke-linecap="round"/><path class="si" d="M8 58V32a24 24 0 0 1 48 0v26M17 58V34a15 15 0 0 1 30 0v24M24 58V36a8 8 0 0 1 16 0v22M2 60h60"/></symbol>
+<symbol id="ill-d5-showa-shinzan" viewBox="0 0 64 64"><path d="M8 58Q10 28 34 26q22 2 24 32z" fill="#D8232A"/><path class="si" d="M6 56Q8 26 32 24q22 2 24 32zM26 34l4 8-3 6M40 36l-3 7M32 20q-5-4 0-8t0-8M42 16q4-3 8-1M2 58h60"/></symbol>
+<symbol id="ill-d5-bear-park" viewBox="0 0 64 64"><circle cx="50" cy="51" r="9" fill="#D8232A"/><g class="si"><circle cx="30" cy="34" r="18"/><circle cx="14" cy="16" r="6"/><circle cx="46" cy="16" r="6"/><ellipse cx="30" cy="42" rx="8" ry="6"/><circle cx="48" cy="49" r="9"/><path d="M48 40v-4l4-3"/></g><g class="sf"><circle cx="23" cy="30" r="1.8"/><circle cx="37" cy="30" r="1.8"/><path d="M27 38h6l-3 4z"/></g></symbol>
+<symbol id="ill-d5-goryokaku" viewBox="0 0 64 64"><polygon points="32,5 39,23 58,24 43,36 48,55 32,44 16,55 21,36 6,24 25,23" fill="#8FB3D9"/><g class="si"><polygon transform="translate(-1 -1)" points="32,6 38.5,23.1 56.7,24 42.5,35.4 47.3,53 32,43 16.7,53 21.5,35.4 7.3,24 25.5,23.1"/><polygon transform="translate(32 33) scale(.5) translate(-32 -32)" points="32,6 38.5,23.1 56.7,24 42.5,35.4 47.3,53 32,43 16.7,53 21.5,35.4 7.3,24 25.5,23.1"/></g></symbol>
+<symbol id="ill-d5-motomachi" viewBox="0 0 64 64"><path d="M8 26h34v26H8z" fill="#D8232A"/><path class="si" d="M6 24h34v26H6zM4 24L14 14h18l10 10M12 44v-8a3 3 0 0 1 6 0v8M26 44v-8a3 3 0 0 1 6 0v8M46 46h14l-3 6h-8zM53 46V28l8 14zM4 58q4-3 8 0t8 0 8 0 8 0 8 0 8 0"/></symbol>
+<symbol id="ill-d5-flight-home" viewBox="0 0 64 64"><use href="#ill-d1-flight-out"/></symbol>
+</svg>
+
+
+<!-- ===== Cover ===== -->
+<header class="cover" id="top">
+  <div class="cover-inner">
+    <div class="masthead-row">
+      <h1 class="masthead">冬戀北海道</h1>
+      <div class="issue">
+        <span class="issue-no num" id="issue-line">民國116年2月號</span>
+        <span class="issue-tag">家族旅行特輯</span>
+      </div>
+    </div>
+    <div class="cover-main">
+      <ul class="coverlines">
+        <li>函館百萬夜景</li>
+        <li>企鵝雪中遊行</li>
+        <li>札幌白色燈節</li>
+        <li>螃蟹吃到飽</li>
+        <li>冰湖釣公魚</li>
+        <li>星形五稜郭</li>
+      </ul>
+      <p class="cover-headline" aria-label="雪國五日">雪國五日</p>
+    <div class="art" aria-hidden="true">
+      <div class="layer layer-mist">
+        <div class="dots"></div>
+        <svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMax meet" focusable="false">
+          <polygon points="0,220 0,150 70,95 105,125 170,60 250,140 300,105 400,170 400,220" fill="#8FB3D9" opacity="0.9"/>
+          <polygon points="310,22 319.4,49.1 348,49.6 325.2,66.9 333.5,94.4 310,78 286.5,94.4 294.8,66.9 272,49.6 300.6,49.1" fill="none" stroke="#8FB3D9" stroke-width="3" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="layer layer-pink">
+        <div class="dots"></div>
+        <svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMax meet" focusable="false">
+          <polygon points="0,220 0,150 70,95 105,125 170,60 250,140 300,105 400,170 400,220" fill="#F2A7B8" opacity="0.6"/>
+          <polygon points="310,22 319.4,49.1 348,49.6 325.2,66.9 333.5,94.4 310,78 286.5,94.4 294.8,66.9 272,49.6 300.6,49.1" fill="none" stroke="#F2A7B8" stroke-width="3" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+    </div>
+  </div>
+  <p class="cover-foot"><span class="num" id="cover-period">2027/2/24–2/28</span>　<span id="cover-party">13 人同行（12 大 1 小）</span></p>
+</header>
+
+<!-- ===== Flights ===== -->
+<section class="flights wrap" aria-labelledby="flights-title">
+  <h2 class="section-title" id="flights-title">航班資訊</h2>
+  <div class="tickets" id="tickets"></div>
+</section>
+
+<div class="tools wrap">
+  <button type="button" class="btn" id="print-btn">存成 PDF</button>
+</div>
+
+<!-- ===== Day navigation ===== -->
+<nav class="daynav" aria-label="行程日期">
+  <div class="daynav-list" id="daynav"></div>
+</nav>
+
+<!-- ===== Days (rendered from JSON) ===== -->
+<main id="days"></main>
+
+<!-- ===== Reminders ===== -->
+<section class="reminders wrap" aria-labelledby="reminders-title">
+  <h2 class="section-title" id="reminders-title">溫馨提醒</h2>
+  <ul id="reminders"></ul>
+</section>
+
+<footer class="page-foot wrap">
+  <p>內容整理自旅行社公開行程，實際安排以當團行前說明會資料為準。</p>
+</footer>
+
+<!-- ===== Photo viewer (single shared dialog) ===== -->
+<dialog class="photo-dialog" id="photo-dialog" aria-labelledby="photo-caption">
+  <div class="photo-card">
+    <p class="photo-status" id="photo-status" role="status"></p>
+    <img class="photo-img" id="photo-img" alt="" hidden>
+    <p class="photo-caption" id="photo-caption"></p>
+    <p class="photo-credit" id="photo-credit"></p>
+    <button type="button" class="btn photo-close" id="photo-close">關閉</button>
+  </div>
+</dialog>
+
+<!-- ===== Trip data ===== -->
+<script type="application/json" id="trip-data">
+{
+  "title": "星宇冬戀雪歌北海道５日",
+  "party": "13 人同行（12 大 1 小）",
+  "flights": [
+    { "label": "去程", "date": "2027-02-24", "no": "JX860", "airline": "星宇航空",
+      "from": { "city": "桃園", "code": "TPE", "time": "12:00" },
+      "to": { "city": "函館", "code": "HKD", "time": "16:30" } },
+    { "label": "回程", "date": "2027-02-28", "no": "JX861", "airline": "星宇航空",
+      "from": { "city": "函館", "code": "HKD", "time": "18:00" },
+      "to": { "city": "桃園", "code": "TPE", "time": "21:40" } }
+  ],
+  "days": [
+    {
+      "day": 1,
+      "date": "2027-02-24",
+      "route": "桃園搭機飛往函館，登函館山欣賞百萬夜景，夜宿道南。",
+      "stops": [
+        { "id": "d1-flight-out", "name": "桃園國際機場✈函館空港", "tags": ["flight"],
+          "desc": "今日集合於桃園機場，搭乘噴射飛機前往北海道最具代表性的港町「函館」。",
+          "notes": [] },
+        { "id": "d1-hakodate-night", "name": "函館百萬夜景", "tags": ["night"],
+          "desc": "傍晚抵達函館山下，搭纜車上山頂展望台，欣賞與香港、那不勒斯並稱世界三大夜景的函館夜景。這是米其林評鑑最高級三顆星景點，纜車秒速 7 公尺、載客量 125 人，為日本最大型纜車。",
+          "notes": [
+            "如遇函館空中纜車年度維修、不可抗力故障或氣候風力影響而無法搭乘，每位貴賓退費￥1500。",
+            "2026/10/20–11/8 函館纜車因維修暫停營運。",
+            "若回程纜車排隊人潮過多，經領隊判斷可能超出司機一日法定工時，回程將改為巴士下山；來回票已購買，無法退費。"
+          ] }
+      ],
+      "meals": { "breakfast": "溫暖的家", "lunch": "機上精緻簡餐", "dinner": "外用日式風味料理￥3000" },
+      "hotel": { "primary": "OMO5 函館 by星野", "alternates": ["同級飯店"], "note": "附設天然溫泉大浴場" }
+    },
+    {
+      "day": 2,
+      "date": "2027-02-25",
+      "route": "大沼、小沼國定公園戲雪與冰湖釣公魚，途經噴火灣，遊小樽運河，夜宿道央。",
+      "stops": [
+        { "id": "d2-onuma", "name": "大沼、小沼國定公園", "tags": [],
+          "desc": "位於函館北方，由 126 個大小島與 32 個湖灣組成，周邊有大沼、小沼、蓴菜沼三座高山湖與駒岳火山，景色富歐洲風味，被評選為日本新三景之一。可在湖畔漫遊，觀賞火山與水鳥生態。",
+          "notes": [] },
+        { "id": "d2-snow-play", "name": "雪國戲雪樂：雪上摩托車、雪上香蕉船、雪盆", "tags": ["winter"],
+          "desc": "坐上雪上摩托車奔馳雪原，或乘香蕉船由雪上摩托車牽引。贈送雪上摩托車一次、雪上香蕉船一次等，也可自由堆雪人、打雪戰。",
+          "notes": [
+            "雪上活動視天氣、雪量而定；如未能遊玩，每位貴賓退費日幣 1000 元。",
+            "戲雪種類會因行程、場地不同略有改變。"
+          ] },
+        { "id": "d2-ice-fishing", "name": "冰湖公魚垂釣", "tags": ["winter"],
+          "desc": "在結冰的湖面挖洞，拿小魚竿釣公魚，並將釣到的魚炸成天婦羅，品嚐北海道冬天的獨特口味。",
+          "notes": [] },
+        { "id": "d2-funka-bay", "name": "路經噴火灣", "tags": [],
+          "desc": "路經從海底至山嶽皆為火山環抱的灣口，稱為噴火灣，又稱內浦灣。",
+          "notes": [] },
+        { "id": "d2-otaru-canal", "name": "浪漫天堂．小樽運河", "tags": [],
+          "desc": "運河兩旁的倉庫群由明治中期至昭和初期的紅磚建造，石造牆垣刻劃出當時的歷史情緒，適合漫步古老街道。",
+          "notes": ["小樽運河如遇氣候及交通限制，可能改為車經參觀。"] },
+        { "id": "d2-kitaichi-music-box", "name": "北一硝子館、音樂盒堂、銀之鐘", "tags": [],
+          "desc": "北一硝子共有 3 個館，販售玻璃製品與裝飾品；3 號館是明治中期的木骨石倉庫。小樽音樂盒堂樓高 3 層，陳列 3000 多個音樂盒，3 樓設有音樂盒工房；堂前蒸氣鐘是小樽地標，每十五分鐘噴氣一次。",
+          "notes": [] }
+      ],
+      "meals": { "breakfast": "飯店內", "lunch": "鐵板香煎海鮮風味料理或日式風味料理￥2500", "dinner": "螃蟹＋涮涮鍋吃到飽＋軟性飲料無限暢飲￥5000" },
+      "hotel": { "primary": "小樽GRAND PARK酒店",
+        "alternates": ["小樽格里茲頂級飯店（附設大浴場）", "小樽運河托里菲托飯店（附設大浴場）", "同級飯店"], "note": "" }
+    },
+    {
+      "day": 3,
+      "date": "2027-02-26",
+      "route": "白色戀人歐風庭院、北海道神宮、札幌啤酒博物館，晚間逛札幌白色燈節與狸小路。",
+      "stops": [
+        { "id": "d3-shiroi-koibito", "name": "白色戀人歐風庭院", "tags": [],
+          "desc": "由工廠改裝而成，英式中庭鋪著紅磚，有噴水池與街燈，充滿歐洲城堡庭院風情。「白色戀人」幾乎已成為北海道的代名詞。",
+          "notes": [] },
+        { "id": "d3-hokkaido-jingu", "name": "北海道神宮", "tags": [],
+          "desc": "北海道唯一的神宮，祭祀開拓三神，參道兩側是樹齡數百年的古木，氣氛莊嚴肅穆，也是札幌春天賞櫻名所之一。",
+          "notes": [] },
+        { "id": "d3-sapporo-beer", "name": "札幌啤酒博物館", "tags": [],
+          "desc": "參觀日本三寶樂啤酒的大本營，館內有各式生產器具與日本啤酒的歷史見證。",
+          "notes": [
+            "啤酒廠參觀如遇每週一定休或年末休假，則取消前往。",
+            "如遇啤酒場預約客滿，則改前往 OUTLET 暢貨中心。"
+          ] },
+        { "id": "d3-duty-free", "name": "免稅店", "tags": ["shopping"],
+          "desc": "前往免稅店購物，北海道物產豐富，並有親切的中文服務，可自由選購。",
+          "notes": [] },
+        { "id": "d3-white-illumination", "name": "札幌白色燈節", "tags": ["winter", "night"],
+          "desc": "從 JR 札幌站到大通公園，下午四點半至晚上十點半，道路兩旁樹木以 37 萬個小燈泡裝飾，有光之森、針葉樹、宇宙的領域、雪人等各式主題燈飾。",
+          "notes": [
+            "冬季限定，節期 2026/11/21–2027/3/14。",
+            "各會場期間：大通公園、站前大街 2026/11/20–12/25；札幌車站前會場 2026/11/20–2027/02/11；南一條通會場 2026/11/20–2027/03/14。",
+            "若因札幌市區飯店爆滿改住小樽或定山溪溫泉，將不便前往白色燈節。"
+          ] },
+        { "id": "d3-tanukikoji", "name": "札幌自由夜訪狸小路", "tags": ["free", "night"],
+          "desc": "自由前往熱鬧的狸小路逛街。這裡約有 130 年歷史，從服飾店、土產店到飲食店共有 200 多家，各有特色。",
+          "notes": [] }
+      ],
+      "meals": { "breakfast": "飯店內", "lunch": "敘敘苑人氣燒肉定食或德壽牛燒肉風味餐￥3000", "dinner": "方便逛街，敬請自理" },
+      "hotel": { "primary": "Premier TSUBAKI札幌",
+        "alternates": ["Premier Hotel 中島公園札幌", "Hotel JAL City札幌中島公園（附設大浴場）", "同級飯店"], "note": "附設大浴場" }
+    },
+    {
+      "day": 4,
+      "date": "2027-02-27",
+      "route": "尼克斯海洋公園看企鵝遊行，遊登別地獄谷、洞爺湖，夜訪彩燈隧道。",
+      "stops": [
+        { "id": "d4-nixe", "name": "尼克斯海洋公園", "tags": [],
+          "desc": "充滿北歐浪漫氣氛的海洋主題樂園，城堡仿丹麥中世紀建築，水族館約有 250 種、一萬條魚，並有水底隧道、金魚萬花筒、海豚與海獅秀，以及國王企鵝大遊行。",
+          "notes": [
+            "2027/4/12–16 休館。",
+            "企鵝遊行有可能因企鵝身體不適而停止。",
+            "如遇年度檢修日或不可抗力，行程將改前往登別伊達時代村。"
+          ] },
+        { "id": "d4-jigokudani", "name": "登別地獄谷", "tags": [],
+          "desc": "登別溫泉的水源，由溫泉街徒步數分鐘可達。硫磺氣體形成直徑約 450 公尺、面積 11 萬平方公尺的火山遺跡，赤紅岩石、黃灰岩丘與蒸氣處處可見，宛如地獄而得名。",
+          "notes": [] },
+        { "id": "d4-toya-viewpoint", "name": "洞爺湖展望台", "tags": [],
+          "desc": "位在洞爺湖北邊小山丘上，與湖中島面對面，可一覽大島、小島、觀音島、饅頭島全景，並 180 度欣賞湖光山色。",
+          "notes": [] },
+        { "id": "d4-toya-onsen", "name": "洞爺湖溫泉", "tags": [],
+          "desc": "洞爺湖是北海道僅有兩個終年不結冰的湖之一，冬季周圍群山有各種雪上活動。夜宿湖畔溫泉酒店。泉質為食鹽泉，對風濕、末梢神經循環不良、皮膚乾燥、關節肌肉酸痛、恢復疲勞等有益。",
+          "notes": [] },
+        { "id": "d4-toya-illumination", "name": "洞爺湖溫泉夢幻彩燈隧道", "tags": ["winter", "night"],
+          "desc": "以 40 萬顆以上燈泡綴飾而成，直徑 9 公尺、全長 70 公尺的光之隧道，走進其中，炫目燈光籠罩全身。",
+          "notes": [
+            "冬季限定，期間 2026 年 11 月 1 日至 2027 年 4 月 27 日。",
+            "如因洞爺湖溫泉區飯店爆滿，改住其他地區溫泉鄉，將無法前往彩燈隧道。"
+          ] }
+      ],
+      "meals": { "breakfast": "飯店內用", "lunch": "園內壽喜鍋吃到飽或風味自選餐￥3500", "dinner": "飯店內百匯自助餐或迎賓式會席料理" },
+      "hotel": { "primary": "洞爺湖觀光飯店（Toya Kanko Hotel）",
+        "alternates": ["洞爺溫泉華美飯店（Hotel Toya Hanabi）", "洞爺湖太陽宮殿（TOYA SUN PALACE RESORT&SPA）", "同級飯店"], "note": "" }
+    },
+    {
+      "day": 5,
+      "date": "2027-02-28",
+      "route": "昭和新山與熊牧場，登五稜郭塔，逛元町異人館街後，由函館返回桃園。",
+      "stops": [
+        { "id": "d5-showa-shinzan", "name": "昭和新山", "tags": [],
+          "desc": "昭和 18 年因有珠山火山爆發的地殼變動，從麥田中隆起，至今仍在冒煙，高度已增至約 407 公尺，山頂的熔岩塔火山被指定為天然紀念物。",
+          "notes": [] },
+        { "id": "d5-bear-park", "name": "昭和新山熊牧場", "tags": [],
+          "desc": "飼養約 100 頭身長約 2 公尺的棕熊，可親自餵食；領地內設有「人籠」，可感受棕熊的震撼力，另有浣熊牧場與小熊幼稚園。特別贈送每位貴賓兩顆蘋果或一袋餅乾供餵熊。",
+          "notes": [] },
+        { "id": "d5-goryokaku", "name": "五稜郭城跡", "tags": [],
+          "desc": "明治時代箱館戰爭的西洋式城堡，形如五芒星而得名，為日本百大名城。特別贈送登上約 107 公尺高的五稜郭塔，自觀景台可望函館山、津輕海峽、橫津連峰，並俯瞰星形的五稜郭。",
+          "notes": [] },
+        { "id": "d5-motomachi", "name": "元町異人館街", "tags": [],
+          "desc": "金森倉庫群是港灣區的明治紅磚倉庫改建，一連 5 大棟，有餐廳、購物街與小型音樂堂；西波止場有海鮮市場、餐廳與咖啡廳；明治館由 1911 年建的舊函館郵局改建為購物中心。",
+          "notes": [] },
+        { "id": "d5-flight-home", "name": "函館空港✈桃園國際機場", "tags": ["flight"],
+          "desc": "前往函館機場，搭乘噴射客機返回台北。",
+          "notes": [] }
+      ],
+      "meals": { "breakfast": "飯店內", "lunch": "發放代金日幣 1000 元，推薦函館名物小丑漢堡", "dinner": "機上精緻簡餐" },
+      "hotel": { "primary": "溫暖的家", "alternates": [], "note": "" }
+    }
+  ],
+  "reminders": [
+    "飯店住宿順序僅為先行提供參考，正確順序請依當團行前說明會資料為準。團體作業無法接受指定住宿及順序。",
+    "飯店不能指定，如需指定請另補價差。旅行社對同等級飯店間的入住選擇有最終決定權。",
+    "旺季期間，旅行社保有變更飯店地區的權力。",
+    "日系飯店並無實際星級分等，網頁所示分級僅為旅遊市場一般認定，並參考日本訂房網頁。",
+    "飯店設定為全程 2 人一室。遇日本特旺季（例如黃金週 4/29–5/6、盂蘭盆節 8/11–16、新年 12/27–1/3 或連續休假），分房會依房型調整為 3 人或 4 人一室。",
+    "素食：海外素食多可食用蔥、薑、蒜、蛋、奶，但除華僑開設的中華料理餐廳外，多以蔬菜、豆腐等為主，飯店內用餐或自助餐亦多為蔬菜、漬物、水果配白飯或麵食，不如台灣豐富。建議素食貴賓自備素食罐頭或泡麵以備不時之需。",
+    "行程及餐食將視季節、預約狀況、觀光地區休假及住宿飯店地點調整。"
+  ]
+}
+</script>
+
+<!-- Photo entries keyed by stop id: { thumbUrl, filePage, author, license, caption }; missing/null = no photo -->
+<script type="application/json" id="photo-data">
+{
+  "d1-flight-out": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/AKX_DHC8-300_JA805K_HKD_01.jpg/960px-AKX_DHC8-300_JA805K_HKD_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:AKX_DHC8-300_JA805K_HKD_01.jpg",
+    "author": "J o",
+    "license": "CC BY-SA 3.0",
+    "caption": "冬季函館機場停機坪上的螺旋槳客機"
+  },
+  "d1-hakodate-night": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Hokkaido_Hakodate_night_view_xl.jpg/960px-Hokkaido_Hakodate_night_view_xl.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:Hokkaido_Hakodate_night_view_xl.jpg",
+    "author": "洞内定晴",
+    "license": "CC BY 4.0",
+    "caption": "從函館山俯瞰冬季函館市區夜景"
+  },
+  "d2-onuma": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Mount_Hokkaido_Komagatake_in_winter_202601.jpg/960px-Mount_Hokkaido_Komagatake_in_winter_202601.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:Mount_Hokkaido_Komagatake_in_winter_202601.jpg",
+    "author": "掬茶",
+    "license": "CC BY-SA 4.0",
+    "caption": "冰封雪白的大沼湖面與遠方的北海道駒岳"
+  },
+  "d2-snow-play": null,
+  "d2-ice-fishing": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Ice_fishing_on_Lake_Onuma.jpg/960px-Ice_fishing_on_Lake_Onuma.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:Ice_fishing_on_Lake_Onuma.jpg",
+    "author": "掬茶",
+    "license": "CC BY-SA 4.0",
+    "caption": "大沼結冰湖面上的公魚冰釣帳篷"
+  },
+  "d2-funka-bay": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Uchiura-Bay_Fishing-boat.jpg/960px-Uchiura-Bay_Fishing-boat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:Uchiura-Bay_Fishing-boat.jpg",
+    "author": "MaedaAkihiko",
+    "license": "CC BY-SA 4.0",
+    "caption": "內浦灣（噴火灣）海上的漁船與遠山（9 月拍攝）"
+  },
+  "d2-otaru-canal": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Otaru_canal.jpg/960px-Otaru_canal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:Otaru_canal.jpg",
+    "author": "欅 (Keyaki)",
+    "license": "CC BY-SA 3.0",
+    "caption": "冬季積雪的小樽運河與石造倉庫"
+  },
+  "d2-kitaichi-music-box": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Otaru_Music_Box_Museum_2014.jpg/960px-Otaru_Music_Box_Museum_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:Otaru_Music_Box_Museum_2014.jpg",
+    "author": "Wpcpey",
+    "license": "CC BY 4.0",
+    "caption": "小樽音樂盒堂本館的紅磚建築（6 月拍攝）"
+  },
+  "d3-shiroi-koibito": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Shiroi_Koibito_Park_20260703a.jpg/960px-Shiroi_Koibito_Park_20260703a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:Shiroi_Koibito_Park_20260703a.jpg",
+    "author": "掬茶",
+    "license": "CC BY-SA 4.0",
+    "caption": "白色戀人公園的歐風建築與花園（非冬季拍攝）"
+  },
+  "d3-hokkaido-jingu": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Hokkaido_Jingu_Torii_in_the_snow.jpg/960px-Hokkaido_Jingu_Torii_in_the_snow.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:Hokkaido_Jingu_Torii_in_the_snow.jpg",
+    "author": "t-konno",
+    "license": "CC BY-SA 3.0",
+    "caption": "雪中的北海道神宮大鳥居"
+  },
+  "d3-sapporo-beer": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Sapporo_Beer_Museum.jpg/960px-Sapporo_Beer_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:Sapporo_Beer_Museum.jpg",
+    "author": "MIKI Yoshihito derivative work: MrPanyGoff",
+    "license": "CC BY 2.0",
+    "caption": "札幌啤酒博物館紅磚建築與煙囪（非冬季拍攝）"
+  },
+  "d3-duty-free": null,
+  "d3-white-illumination": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/%E7%AC%AC35%E5%9B%9E%E3%81%95%E3%81%A3%E3%81%BD%E3%82%8D%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88%E3%82%A4%E3%83%AB%E3%83%9F%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%88Sapporo_White_illumination_35th%EF%BC%89_-_panoramio.jpg/960px-%E7%AC%AC35%E5%9B%9E%E3%81%95%E3%81%A3%E3%81%BD%E3%82%8D%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88%E3%82%A4%E3%83%AB%E3%83%9F%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%88Sapporo_White_illumination_35th%EF%BC%89_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:%E7%AC%AC35%E5%9B%9E%E3%81%95%E3%81%A3%E3%81%BD%E3%82%8D%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88%E3%82%A4%E3%83%AB%E3%83%9F%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%88Sapporo_White_illumination_35th%EF%BC%89_-_panoramio.jpg",
+    "author": "t-konno",
+    "license": "CC BY-SA 3.0",
+    "caption": "大通公園的札幌白色燈樹節藍色燈海（2016 年 11 月大通公園會場）"
+  },
+  "d3-tanukikoji": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Tanukikoji_Shopping_Arcade_-_Jul_21%2C_2023.jpg/960px-Tanukikoji_Shopping_Arcade_-_Jul_21%2C_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:Tanukikoji_Shopping_Arcade_-_Jul_21,_2023.jpg",
+    "author": "MIKI Yoshihito",
+    "license": "CC BY 2.0",
+    "caption": "夜晚的札幌狸小路商店街入口拱廊（夏季拍攝）"
+  },
+  "d4-nixe": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Noboribetsu_marine_park_nixe.jpg/960px-Noboribetsu_marine_park_nixe.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:Noboribetsu_marine_park_nixe.jpg",
+    "author": "User:欅",
+    "license": "CC BY-SA 3.0",
+    "caption": "雪中的登別尼克斯海洋公園城堡"
+  },
+  "d4-jigokudani": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Noboribetsu_%26_Usuzan_-_Noboribetsu7137.jpg/960px-Noboribetsu_%26_Usuzan_-_Noboribetsu7137.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:Noboribetsu_%26_Usuzan_-_Noboribetsu7137.jpg",
+    "author": "lumoplank",
+    "license": "CC0",
+    "caption": "登別地獄谷冒著白煙的火山谷地（秋季拍攝）"
+  },
+  "d4-toya-viewpoint": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Hokkaido-Toya_Lake-xl.jpg/960px-Hokkaido-Toya_Lake-xl.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:Hokkaido-Toya_Lake-xl.jpg",
+    "author": "洞爺湖町",
+    "license": "CC BY 4.0",
+    "caption": "冬季洞爺湖與湖中的中島，遠方為羊蹄山"
+  },
+  "d4-toya-onsen": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Toya_20161230141547_%2832165551746%29.jpg/960px-Toya_20161230141547_%2832165551746%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:Toya_20161230141547_(32165551746).jpg",
+    "author": "inunami",
+    "license": "CC BY 2.0",
+    "caption": "冬季洞爺湖溫泉的湖畔雪景"
+  },
+  "d4-toya-illumination": null,
+  "d5-showa-shinzan": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Noboribetsu_%26_Usuzan_-_Usuzan7156.jpg/960px-Noboribetsu_%26_Usuzan_-_Usuzan7156.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:Noboribetsu_%26_Usuzan_-_Usuzan7156.jpg",
+    "author": "lumoplank",
+    "license": "CC0",
+    "caption": "紅褐色岩肌的昭和新山熔岩穹丘（秋季拍攝）"
+  },
+  "d5-bear-park": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/%E6%98%AD%E5%92%8C%E6%96%B0%E5%B1%B1%E7%86%8A%E7%89%A7%E5%A0%B4_Showashinzan_Bear_Ranch_-_panoramio.jpg/960px-%E6%98%AD%E5%92%8C%E6%96%B0%E5%B1%B1%E7%86%8A%E7%89%A7%E5%A0%B4_Showashinzan_Bear_Ranch_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:%E6%98%AD%E5%92%8C%E6%96%B0%E5%B1%B1%E7%86%8A%E7%89%A7%E5%A0%B4_Showashinzan_Bear_Ranch_-_panoramio.jpg",
+    "author": "lienyuan lee",
+    "license": "CC BY 3.0",
+    "caption": "昭和新山熊牧場裡站立討食的棕熊"
+  },
+  "d5-goryokaku": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Hokkaido-Goryokaku_Fort_in_winter-xl.jpg/960px-Hokkaido-Goryokaku_Fort_in_winter-xl.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:Hokkaido-Goryokaku_Fort_in_winter-xl.jpg",
+    "author": "Goryokaku-Tower",
+    "license": "CC BY 4.0",
+    "caption": "從五稜郭塔俯瞰冬季白雪覆蓋的星形城郭"
+  },
+  "d5-motomachi": {
+    "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Kanemori_Red_Brick_Warehouse_in_winter_20231224.jpg/960px-Kanemori_Red_Brick_Warehouse_in_winter_20231224.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "filePage": "https://commons.wikimedia.org/wiki/File:Kanemori_Red_Brick_Warehouse_in_winter_20231224.jpg",
+    "author": "掬茶",
+    "license": "CC BY-SA 4.0",
+    "caption": "冬季的函館金森紅磚倉庫"
+  },
+  "d5-flight-home": null
+}
+</script>
+
+<!-- ===== Core logic (no DOM access) ===== -->
+<script id="core">
+(function () {
+  var WEEKDAYS = ['日', '一', '二', '三', '四', '五', '六'];
+  var TAIPEI_OFFSET_MS = 8 * 60 * 60 * 1000; // Taiwan has no DST, so a fixed offset is exact
+  var ISO_DATE = /^(\d{4})-(\d{2})-(\d{2})$/;
+
+  function parseIso(isoDate) {
+    var m = ISO_DATE.exec(isoDate);
+    if (!m) { throw new Error('Expected YYYY-MM-DD, got: ' + isoDate); }
+    return { year: +m[1], month: +m[2], day: +m[3] };
+  }
+
+  function formatTripDate(isoDate) {
+    var p = parseIso(isoDate);
+    var weekday = new Date(Date.UTC(p.year, p.month - 1, p.day)).getUTCDay();
+    return p.month + '/' + p.day + '（' + WEEKDAYS[weekday] + '）';
+  }
+
+  function toMinguoYear(gregorianYear) {
+    return gregorianYear - 1911;
+  }
+
+  function findTodayIndex(now, isoDates) {
+    var ms = now.getTime();
+    if (isNaN(ms)) { return -1; }
+    var taipeiDay = new Date(ms + TAIPEI_OFFSET_MS).toISOString().slice(0, 10);
+    return isoDates.indexOf(taipeiDay);
+  }
+
+  var HTTPS_URL = /^https:\/\/[^\s]+$/;
+
+  function isSafeHttpsUrl(value) {
+    return typeof value === 'string' && HTTPS_URL.test(value);
+  }
+
+  function isFilled(value) {
+    return typeof value === 'string' && value.trim() !== '';
+  }
+
+  // Returns a normalized photo entry for a stop id, or null when absent/invalid
+  function getPhoto(photoData, stopId) {
+    if (!photoData || typeof photoData !== 'object') { return null; }
+    var entry = photoData[stopId];
+    if (!entry || typeof entry !== 'object') { return null; }
+    if (!isSafeHttpsUrl(entry.thumbUrl) || !isSafeHttpsUrl(entry.filePage)) { return null; }
+    if (!isFilled(entry.author) || !isFilled(entry.license)) { return null; }
+    return {
+      thumbUrl: entry.thumbUrl,
+      filePage: entry.filePage,
+      author: entry.author,
+      license: entry.license,
+      caption: typeof entry.caption === 'string' ? entry.caption : ''
+    };
+  }
+
+  globalThis.TripCore = {
+    isSafeHttpsUrl: isSafeHttpsUrl,
+    getPhoto: getPhoto,
+    formatTripDate: formatTripDate,
+    toMinguoYear: toMinguoYear,
+    findTodayIndex: findTodayIndex
+  };
+})();
+</script>
+
+<!-- ===== UI ===== -->
+<script id="ui">
+(function () {
+  var core = globalThis.TripCore;
+  var trip = JSON.parse(document.getElementById('trip-data').textContent);
+  var TAG_LABELS = { winter: '冬季限定', night: '夜間', free: '自由活動', shopping: '購物', flight: '航班' };
+  var photos = JSON.parse(document.getElementById('photo-data').textContent);
+  var SVG_NS = 'http://www.w3.org/2000/svg';
+  var MEAL_LABELS = [['breakfast', '早'], ['lunch', '午'], ['dinner', '晚']];
+
+  // textContent only: trip data never reaches innerHTML
+  function el(tag, className, text) {
+    var node = document.createElement(tag);
+    if (className) { node.className = className; }
+    if (text !== undefined) { node.textContent = text; }
+    return node;
+  }
+
+  function compactDate(isoDate) {
+    return core.formatTripDate(isoDate).replace(/[（）]/g, '');
+  }
+
+  /* --- Cover meta --- */
+  function renderCoverMeta() {
+    var first = trip.days[0].date;
+    var last = trip.days[trip.days.length - 1].date;
+    var year = +first.slice(0, 4);
+    var month = +first.slice(5, 7);
+    document.getElementById('issue-line').textContent = '民國' + core.toMinguoYear(year) + '年' + month + '月號';
+    var short = function (iso) { return +iso.slice(5, 7) + '/' + +iso.slice(8, 10); };
+    document.getElementById('cover-period').textContent = year + '/' + short(first) + '–' + short(last);
+    document.getElementById('cover-party').textContent = trip.party;
+  }
+
+  /* --- Flights --- */
+  function renderLeg(point, side) {
+    var leg = el('div', 'leg leg-' + side);
+    leg.appendChild(el('span', 'leg-time', point.time));
+    leg.appendChild(el('span', 'leg-code', point.code));
+    leg.appendChild(el('span', 'leg-city', point.city));
+    return leg;
+  }
+
+  function renderTicket(flight) {
+    var ticket = el('article', 'ticket');
+    var main = el('div', 'ticket-main');
+    var head = el('div', 'ticket-head');
+    head.appendChild(el('span', '', flight.label));
+    head.appendChild(el('span', 'num', core.formatTripDate(flight.date)));
+    var legs = el('div', 'ticket-legs');
+    legs.appendChild(renderLeg(flight.from, 'from'));
+    legs.appendChild(el('span', 'leg-line'));
+    legs.appendChild(renderLeg(flight.to, 'to'));
+    main.appendChild(head);
+    main.appendChild(legs);
+    var stub = el('div', 'ticket-stub');
+    stub.appendChild(el('span', 'flight-no', flight.no));
+    stub.appendChild(el('span', 'airline', flight.airline));
+    ticket.appendChild(main);
+    ticket.appendChild(stub);
+    return ticket;
+  }
+
+  function renderFlights() {
+    var box = document.getElementById('tickets');
+    trip.flights.forEach(function (f) { box.appendChild(renderTicket(f)); });
+  }
+
+  /* --- Photo dialog --- */
+  var dialog = document.getElementById('photo-dialog');
+  var photoImg = document.getElementById('photo-img');
+  var photoStatus = document.getElementById('photo-status');
+  var photoTrigger = null;
+
+  function openPhoto(photo, trigger) {
+    photoTrigger = trigger;
+    document.getElementById('photo-caption').textContent = photo.caption;
+    var credit = document.getElementById('photo-credit');
+    credit.textContent = '照片：' + photo.author + '，' + photo.license + '，';
+    var link = el('a', '', '維基共享資源');
+    link.setAttribute('href', photo.filePage);
+    link.setAttribute('target', '_blank');
+    link.setAttribute('rel', 'noopener');
+    credit.appendChild(link);
+    photoImg.hidden = true;
+    photoImg.setAttribute('alt', photo.caption);
+    photoStatus.textContent = '照片載入中…';
+    photoImg.setAttribute('loading', 'eager');
+    photoImg.setAttribute('decoding', 'async');
+    photoImg.setAttribute('src', photo.thumbUrl);
+    dialog.showModal();
+  }
+
+  function setupPhotoDialog() {
+    photoImg.addEventListener('load', function () {
+      if (!photoImg.getAttribute('src')) { return; }
+      photoStatus.textContent = '';
+      photoImg.hidden = false;
+    });
+    photoImg.addEventListener('error', function () {
+      if (!photoImg.getAttribute('src')) { return; }
+      photoImg.hidden = true;
+      photoStatus.textContent = '目前無法載入照片，請確認網路連線後再試。';
+    });
+    document.getElementById('photo-close').addEventListener('click', function () { dialog.close(); });
+    // Clicks outside the dialog box land on the dialog element itself (the backdrop)
+    dialog.addEventListener('click', function (event) {
+      var box = dialog.getBoundingClientRect();
+      var inside = event.clientX >= box.left && event.clientX <= box.right &&
+                   event.clientY >= box.top && event.clientY <= box.bottom;
+      if (!inside) { dialog.close(); }
+    });
+    dialog.addEventListener('close', function () {
+      photoImg.removeAttribute('src');
+      photoImg.hidden = true;
+      if (photoTrigger) { photoTrigger.focus(); photoTrigger = null; }
+    });
+  }
+
+  /* --- Days --- */
+  function renderStamp(stopId) {
+    var stamp = el('span', 'stamp');
+    var face = el('span', 'stamp-face');
+    var svg = document.createElementNS(SVG_NS, 'svg');
+    svg.setAttribute('class', 'stamp-art');
+    svg.setAttribute('viewBox', '0 0 64 64');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    var use = document.createElementNS(SVG_NS, 'use');
+    use.setAttribute('href', '#ill-' + stopId);
+    svg.appendChild(use);
+    face.appendChild(svg);
+    stamp.appendChild(face);
+    stamp.setAttribute('aria-hidden', 'true');
+    return stamp;
+  }
+
+  function renderStop(stop) {
+    var item = el('li');
+    var details = el('details', 'stop');
+    var summary = el('summary');
+    var title = el('span', 'stop-title');
+    title.appendChild(el('span', 'stop-name', stop.name));
+    stop.tags.forEach(function (tag) {
+      var cls = tag === 'winter' || tag === 'night' ? 'badge' : 'badge badge-quiet';
+      title.appendChild(el('span', cls, TAG_LABELS[tag] || tag));
+    });
+    summary.appendChild(renderStamp(stop.id));
+    summary.appendChild(title);
+    var body = el('div', 'stop-body');
+    body.appendChild(el('p', 'stop-desc', stop.desc));
+    if (stop.notes.length) {
+      var notes = el('ul', 'stop-notes');
+      stop.notes.forEach(function (n) { notes.appendChild(el('li', '', n)); });
+      body.appendChild(notes);
+    }
+    var photo = core.getPhoto(photos, stop.id);
+    if (photo) {
+      var photoBtn = el('button', 'btn photo-btn', '看實景照片');
+      photoBtn.type = 'button';
+      photoBtn.addEventListener('click', function () { openPhoto(photo, photoBtn); });
+      body.appendChild(photoBtn);
+    }
+    details.appendChild(summary);
+    details.appendChild(body);
+    item.appendChild(details);
+    return item;
+  }
+
+  function renderMeals(meals) {
+    var list = el('ul', 'meals');
+    MEAL_LABELS.forEach(function (pair) {
+      var li = el('li');
+      li.appendChild(el('span', 'meal-label', pair[1]));
+      li.appendChild(el('span', 'meal-text', meals[pair[0]]));
+      list.appendChild(li);
+    });
+    return list;
+  }
+
+  function renderHotel(hotel) {
+    var box = el('div', 'hotel');
+    box.appendChild(el('p', 'hotel-label', '住宿'));
+    box.appendChild(el('p', 'hotel-primary', hotel.primary));
+    if (hotel.note) { box.appendChild(el('p', 'hotel-note', hotel.note)); }
+    if (hotel.alternates.length) {
+      box.appendChild(el('p', 'hotel-alt-label', '或同級備選'));
+      var alts = el('ul', 'hotel-alts');
+      hotel.alternates.forEach(function (a) { alts.appendChild(el('li', '', a)); });
+      box.appendChild(alts);
+    }
+    return box;
+  }
+
+  function renderDay(day, index) {
+    var section = el('section', 'day wrap');
+    section.id = 'day-' + (index + 1);
+    section.setAttribute('aria-labelledby', section.id + '-title');
+    var head = el('header', 'day-head');
+    head.appendChild(el('span', 'day-numeral', String(day.day)));
+    var label = el('h2', 'day-label', '第 ' + day.day + ' 天');
+    label.id = section.id + '-title';
+    head.appendChild(label);
+    head.appendChild(el('p', 'day-date', core.formatTripDate(day.date)));
+    head.appendChild(el('p', 'day-route', day.route));
+    var timeline = el('ol', 'timeline');
+    day.stops.forEach(function (s) { timeline.appendChild(renderStop(s)); });
+    var foot = el('div', 'day-foot');
+    foot.appendChild(renderMeals(day.meals));
+    foot.appendChild(renderHotel(day.hotel));
+    section.appendChild(head);
+    section.appendChild(timeline);
+    section.appendChild(foot);
+    return section;
+  }
+
+  function renderDays() {
+    var main = document.getElementById('days');
+    trip.days.forEach(function (d, i) { main.appendChild(renderDay(d, i)); });
+  }
+
+  /* --- Navigation --- */
+  function renderNav() {
+    var nav = document.getElementById('daynav');
+    trip.days.forEach(function (day, i) {
+      var btn = el('button', 'daynav-btn');
+      btn.type = 'button';
+      btn.dataset.target = 'day-' + (i + 1);
+      btn.appendChild(el('span', 'nav-day', '第' + day.day + '天'));
+      btn.appendChild(el('span', 'nav-date', compactDate(day.date)));
+      btn.addEventListener('click', function () {
+        document.getElementById(btn.dataset.target).scrollIntoView();
+      });
+      nav.appendChild(btn);
+    });
+  }
+
+  function setActive(id) {
+    document.querySelectorAll('.daynav-btn').forEach(function (btn) {
+      if (btn.dataset.target === id) { btn.setAttribute('aria-current', 'true'); }
+      else { btn.removeAttribute('aria-current'); }
+    });
+  }
+
+  function observeDays() {
+    if (!('IntersectionObserver' in window)) { return; }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { setActive(entry.target.id); }
+      });
+    }, { rootMargin: '-72px 0px -60% 0px', threshold: 0 });
+    document.querySelectorAll('.day').forEach(function (d) { observer.observe(d); });
+  }
+
+  function markToday() {
+    var index = core.findTodayIndex(new Date(), trip.days.map(function (d) { return d.date; }));
+    if (index < 0) { return; }
+    var btn = document.querySelectorAll('.daynav-btn')[index];
+    btn.appendChild(el('span', 'today-mark', '今天'));
+    document.getElementById('day-' + (index + 1)).scrollIntoView();
+  }
+
+  /* --- Print --- */
+  var savedOpenStates = null;
+
+  function setupPrint() {
+    document.getElementById('print-btn').addEventListener('click', function () { window.print(); });
+    window.addEventListener('beforeprint', function () {
+      var all = document.querySelectorAll('details');
+      if (!savedOpenStates) {
+        savedOpenStates = Array.prototype.map.call(all, function (d) { return d.open; });
+      }
+      all.forEach(function (d) { d.open = true; });
+    });
+    window.addEventListener('afterprint', function () {
+      if (!savedOpenStates) { return; }
+      var states = savedOpenStates;
+      document.querySelectorAll('details').forEach(function (d, i) { d.open = states[i]; });
+      savedOpenStates = null;
+    });
+  }
+
+  /* --- Reminders --- */
+  function renderReminders() {
+    var list = document.getElementById('reminders');
+    trip.reminders.forEach(function (text) { list.appendChild(el('li', '', text)); });
+  }
+
+  renderCoverMeta();
+  renderFlights();
+  renderDays();
+  renderNav();
+  renderReminders();
+  observeDays();
+  setupPrint();
+  setupPhotoDialog();
+  markToday();
+})();
+</script>
+</body>
+</html>
